@@ -57,7 +57,7 @@ class Solution(object):
             print(last_number)
             return last_number
         
-#3、双指针
+#3、双指针 44ms
 
 
 class Solution(object):
