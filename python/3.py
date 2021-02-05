@@ -31,3 +31,28 @@ class Solution(object):
                     last_number = max_number
            # print(last_number)
             return last_number
+        
+#2、滑动窗口 72ms
+
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if s=='':
+            return 0
+        elif len(s)==1:
+            return 1
+        else:
+            windows = []
+            last_number = 0
+            for ss in s:
+                if ss not in windows:
+                    windows.append(ss)
+                else:
+                    windows = windows[windows.index(ss) + 1:]
+                    windows.append(ss)
+                last_number = max(last_number,len(windows))
+            print(last_number)
+            return last_number
