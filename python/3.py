@@ -56,3 +56,29 @@ class Solution(object):
                 last_number = max(last_number,len(windows))
             print(last_number)
             return last_number
+        
+#3、双指针
+
+
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if s=='':
+            return 0
+        elif len(s)==1:
+            return 1
+        else:
+            left,right = 0,0
+            last_number = 0
+            for i,ss in enumerate(s):
+                if ss not in s[left:right]:
+                    right+=1
+                else:
+                    left += s[left:right].index(ss) + 1
+                    right+=1
+                last_number = max(right-left,last_number)
+            print(last_number)
+            return last_number
